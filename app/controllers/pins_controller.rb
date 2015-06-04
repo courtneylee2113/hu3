@@ -1,9 +1,16 @@
 class PinsController < ApplicationController
+
 skip_before_filter(:require_login, {:only => :index})
 
 def index
     @pin = Pin.all
     @pin =Pin.new
+
+load_and_authorize_resource :only => [:index, :show]
+	
+	def index
+	end
+
 end
 
 def show
