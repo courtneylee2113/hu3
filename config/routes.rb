@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  resources :pins
+  root 'pins#index'
+  devise_for :users 
+  
+
+  resources :pins, only: [:index, :show, :new]
+  resources :users, only: [:index, :show, :new]
+  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
